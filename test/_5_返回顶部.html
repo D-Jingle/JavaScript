@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            height: 3000px;
+            width: 200px;
+            background: #da6c9b;
+        }
+        .btn{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+    </div>
+
+    <input type="button" value="返回顶部" class="btn" onclick="eee()">
+
+<script>
+
+    //定义当前页面高度变量
+    var nowTop = 0;
+
+    //在每次滚动页面时记录当下页面高度
+    window.onscroll = function () {
+        nowTop = document.documentElement.scrollTop;
+    }
+
+    //匿名函数
+    eee = function () {
+        var timer = setInterval(function(){
+            // console.log("1");
+
+            //每隔5毫秒将页面上升10
+            window.scrollTo(nowTop-=10,nowTop-=10);
+
+            //设置周期函数停止时间
+            if(nowTop<10){
+                clearInterval(timer);
+            }
+        },5)
+    }
+</script>
+
+</body>
+</html>

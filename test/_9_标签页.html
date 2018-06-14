@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+   /**{*/
+       /*padding: 0;*/
+   /*}*/
+    .ull{
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+    .ull li{
+        list-style: none;
+    }
+
+    .txtt{
+        border-right: black solid 1px;
+        width: 100px;
+        text-align: center;
+        background: dimgrey;
+        color: white;
+    }
+    .txt{
+        border-left: black solid 1px;
+        width: 100px;
+        text-align: center;
+        background-color: white;
+        color: black;
+    }
+    .inbbb{
+        display: none;
+    }
+    .inbb{
+        display: block;
+    }
+
+</style>
+
+<body>
+<div class="box">
+
+    <div class="aaa">
+        <ul class="ull">
+            <li class="txt t">第一节</li>
+            <li class="txt t">第二节</li>
+            <li class="txt t">第三节</li>
+        </ul>
+
+    </div>
+
+    <div class="bbb">
+        <div class="inbbb in">
+            <ul>
+                <li>内容111</li>
+                <li>内容111</li>
+                <li>内容111</li>
+            </ul>
+        </div>
+        <div class="inbbb in">
+            <ul>
+                <li>内容222</li>
+                <li>内容222</li>
+            </ul>
+        </div>
+        <div class="inbbb in">
+            <ul>
+                <li>内容333</li>
+                <li>内容333</li>
+                <li>内容333</li>
+                <li>内容333</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var oTxt = document.getElementsByClassName("t");
+    var oBbb = document.getElementsByClassName("in");
+    var i = 0;
+    var j = 0;
+    for(i=0; i<oTxt.length; i++){
+        oTxt[i].index = i;
+        oTxt[i].onmousemove = function () {
+            for(j=0; j<oBbb.length; j++){
+                oBbb[j].className = "inbbb in";
+            }
+            for(j=0; j<oTxt.length; j++){
+                oTxt[j].className = "txt t";
+            }
+            oBbb[this.index].className = "inbb in";
+            oTxt[this.index].className = "txtt t";
+        }
+    }
+</script>
+
+</body>
+</html>

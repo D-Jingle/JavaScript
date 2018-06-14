@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<style>
+    .container{
+        width: 500px;
+        margin: 0 auto;
+    }
+    .img{
+        width: 500px;
+        /*display: none;*/
+    }
+    .active{
+        width: 500px;
+        display: block;
+    }
+    .btn1{
+        position: relative;
+        left: 360px;
+        top: -45px;
+        cursor: pointer;
+    }
+    .btn2{
+        position: relative;
+        left: 365px;
+        top: -45px;
+        cursor: pointer;
+    }
+    .ul1{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        top: -63px;
+        width: 150px;
+        margin: 0;
+        /*left: -20px;*/
+    }
+    .ul1 .lii{
+        list-style: none;
+        width: 30px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .ul1 .lii:hover {
+        color: white;
+        text-decoration:underline;
+    }
+    .ul1 .active{
+        color: white;
+        text-decoration:underline;
+    }
+    .imgs{
+        /*width: 500px;*/
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+
+    }
+    .dimg{
+        width: 500px;
+        position: relative;
+        height: 317.5px;
+        overflow: hidden;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="dimg">
+        <div class="imgs">
+            <div><img class="img" src="../img/111.jpg"></div>
+            <div><img class="img" src="../img/222.jpg"></div>
+            <div><img class="img" src="../img/333.jpg"></div>
+            <div><img class="img" src="../img/444.jpg"></div>
+            <div><img class="img" src="../img/111.jpg"></div>
+        </div>
+    </div>
+    <input type="button" value="上一张" class="btn1" onclick="cbtn1()">
+    <input type="button" value="下一张" class="btn2" onclick="cbtn2()">
+    <ul class="ul1">
+        <li class="lii active">1</li>
+        <li class="lii">2</li>
+        <li class="lii">3</li>
+        <li class="lii">4</li>
+    </ul>
+
+</div>
+<script>
+    var Img = document.getElementsB/≥//yClassName("img");
+    var Imgs = document.getElementsByClassName("imgs")[0];
+    var Lis = document.getElementsByClassName("lii");
+    var timerleft;
+    var timerleft2;
+    var j = 0;
+
+    var curleft = Imgs.offsetLeft; //当前位置的left值,值永远为负数
+    var thatleft = 0; // 目的位置的left值
+
+
+    var left_time = function () {
+        Imgs.style.left = Imgs.offsetLeft + 10 + "px";
+        curleft = Imgs.offsetLeft;
+        if (curleft > thatleft){
+            if(-Imgs.offsetLeft < 500 && Imgs.offsetLeft != 0){
+                Imgs.style.left = -(2000 - Imgs.offsetLeft) + 'px';
+            }
+            for (j = 0; j < Lis.length; j++) {
+                Lis[j].className = "lii";
+            }
+            Lis[(-Imgs.offsetLeft/500)].className = 'lii active';
+            clearInterval(timerleft);
+        }
+    }
+
+    var right_time = function () {
+        Imgs.style.left = Imgs.offsetLeft - 10 + "px";
+        curleft = Imgs.offsetLeft;
+        if (curleft < thatleft){
+            if(-Imgs.offsetLeft >= 2000 ){
+                Imgs.style.left = Imgs.offsetLeft + 2000 + 'px';
+            }
+            for (j = 0; j < Lis.length; j++) {
+                Lis[j].className = "lii";
+            }
+            Lis[(-Imgs.offsetLeft/500)].className = 'lii active';
+            clearInterval(timerleft2);
+        }
+    }
+
+    cbtn1 = function () {
+        clearInterval(timerleft);
+        if (Imgs.offsetLeft == 0){
+            Imgs.style.left = -2000 + 'px';
+        }
+        thatleft = (Imgs.offsetLeft + 499 - 2000) % 2000;
+        timerleft = setInterval(left_time,1);
+    }
+
+    cbtn2 = function () {
+        clearInterval(timerleft2);
+        if (Imgs.offsetLeft == -2000){
+            Imgs.style.left = 0 + 'px';
+        }
+        thatleft = (Imgs.offsetLeft - 499 - 2000) % 2000;
+        timerleft2 = setInterval(right_time,1);
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

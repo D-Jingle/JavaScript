@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: #dddddd;
+            /*margin: 0 auto;*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+
+        }
+        .div2{
+            color: black;
+            font-size: 100px;
+            /*margin: 0 75px;*/
+            /*position: relative;*/
+            /*top: -50%;*/
+            /*left: -50%;*/
+        }
+    </style>
+</head>
+<body>
+<div class="div1" >
+    <div class="div2">100</div>
+    <div class="div3">
+        <input type="button" value="开始" id="btn1">
+        <input type="button" value="重计" id="btn2">
+    </div>
+
+
+</div>
+<script>
+    var oDiv2 = document.getElementsByClassName("div2")[0];
+    var oBtn1 = document.getElementById("btn1");
+    var k = 100;
+    var timer;
+    function time() {
+        k--;
+        oDiv2.innerText = k;
+    }
+    oBtn1.onclick = function () {
+        if(oBtn1.value == "开始"){
+            oBtn1.value = "暂停";
+            timer = setInterval(time,1000);
+        } else if(oBtn1.value == "暂停") {
+            clearInterval(timer);
+            oBtn1.value = "开始";
+        }
+    }
+
+    var oBtn2 = document.getElementById("btn2");
+    oBtn2.onclick = function () {
+        clearInterval(timer);
+        k = 100;
+        oDiv2.innerText = k;
+        oBtn1.value = "开始";
+    }
+
+
+</script>
+
+</body>
+</html>

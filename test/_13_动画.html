@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js动画</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 60px;
+            background-color: #ffbadf;
+            margin-bottom: 20px;
+        }
+        #div2{
+            width: 400px;
+            height: 60px;
+            background-color: #ffbadf;
+            margin-bottom: 20px;
+        }
+        #div3{
+            width: 400px;
+            height: 60px;
+            background-color: #ffbadf;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var oDiv2 = document.getElementById("div2");
+        var oDiv3 = document.getElementById("div3");
+        var timer,timer3,timer4,timer5,timer6;
+        var thisWidth;
+        var thisWidth2;
+        var timer2;
+        oDiv1.onmouseenter = function () {
+            clearInterval(timer2);
+            timer = setInterval(function () {
+                thisWidth = oDiv1.offsetWidth;
+                oDiv1.style.width = thisWidth + 1 + "px";
+            },1)
+        }
+        oDiv1.onmouseleave = function () {
+            clearInterval(timer);
+            timer2  = setInterval(function () {
+                thisWidth2 = oDiv1.offsetWidth;
+                oDiv1.style.width = thisWidth2 - 1 + "px";
+                if(oDiv1.offsetWidth == 400||oDiv1.offsetWidth < 400){
+                    clearInterval(timer2);
+                }
+            },1)
+        }
+
+        oDiv2.onmouseenter = function () {
+            clearInterval(timer4);
+            timer3 = setInterval(function () {
+                thisWidth = oDiv2.offsetWidth;
+                oDiv2.style.width = thisWidth + 1 + "px";
+            },1)
+        }
+        oDiv2.onmouseleave = function () {
+            clearInterval(timer3);
+            timer4  = setInterval(function () {
+                thisWidth2 = oDiv2.offsetWidth;
+                oDiv2.style.width = thisWidth2 - 1 + "px";
+                if(oDiv2.offsetWidth == 400||oDiv2.offsetWidth <= 400){
+                    clearInterval(timer4);
+                }
+            },1)
+        }
+
+        oDiv3.onmouseenter = function () {
+            clearInterval(timer6);
+            timer5 = setInterval(function () {
+                thisWidth = oDiv3.offsetWidth;
+                oDiv3.style.width = thisWidth + 1 + "px";
+            },1)
+        }
+        oDiv3.onmouseleave = function () {
+            clearInterval(timer5);
+            timer6  = setInterval(function () {
+                thisWidth2 = oDiv3.offsetWidth;
+                oDiv3.style.width = thisWidth2 - 1 + "px";
+                if(oDiv3.offsetWidth == 400 ||oDiv3.offsetWidth < 400){
+                    clearInterval(timer6);
+                }
+            },1)
+        }
+
+    </script>
+</body>
+</html>

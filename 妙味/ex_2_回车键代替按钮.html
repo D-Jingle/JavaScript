@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        
+    </style>
+
+</head>
+<body>
+
+
+<textarea name="txta" id="txt1" cols="40" rows="10"></textarea> <br>
+<input type="text" id="txt2">
+<input type="button" value="提交" id="btn1">
+
+
+
+<script>
+    var oBtn = document.getElementById("btn1");
+    var oTxt1 = document.getElementById("txt1");
+    var oTxt2 = document.getElementById("txt2");
+    oBtn.onclick = function () {
+        oTxt1.value += oTxt2.value + '\n';
+        oTxt2.value = "";
+    }
+    oTxt2.onkeydown = function(){
+        // alert(event.keyCode);
+        if(event.keyCode == 13){
+            oBtn.onclick();
+        }
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

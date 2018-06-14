@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .img{
+            width: 500px;
+            /*display: none;*/
+        }
+        .active{
+            width: 500px;
+            display: block;
+        }
+        .btn1{
+            position: relative;
+            left: 360px;
+            top: -45px;
+            cursor: pointer;
+        }
+        .btn2{
+            position: relative;
+            left: 365px;
+            top: -45px;
+            cursor: pointer;
+        }
+        .ul1{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            top: -63px;
+            width: 150px;
+            margin: 0;
+            /*left: -20px;*/
+        }
+        .ul1 .lii{
+            list-style: none;
+            width: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .ul1 .lii:hover {
+            color: white;
+            text-decoration:underline;
+        }
+        .ul1 .active{
+            color: white;
+            text-decoration:underline;
+        }
+        .imgs{
+            /*width: 500px;*/
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+
+        }
+        .dimg{
+            width: 500px;
+            position: relative;
+            height: 317.5px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="dimg">
+        <div class="imgs">
+            <div><img class="img" src="../img/111.jpg"></div>
+            <div><img class="img" src="../img/222.jpg"></div>
+            <div><img class="img" src="../img/333.jpg"></div>
+            <div><img class="img" src="../img/444.jpg"></div>
+            <div><img class="img" src="../img/111.jpg"></div>
+        </div>
+    </div>
+    <input type="button" value="上一张" class="btn1" onclick="cbtn1()">
+    <input type="button" value="下一张" class="btn2" onclick="cbtn2()">
+    <ul class="ul1">
+        <li class="lii active">1</li>
+        <li class="lii">2</li>
+        <li class="lii">3</li>
+        <li class="lii">4</li>
+    </ul>
+
+</div>
+
+<script>
+    var imgs = document.getElementsByClassName("img");
+    var oimg = document.getElementsByClassName('imgs')[0];
+    var lis = document.getElementsByClassName('ul1');
+    var i = 0;
+
+    var k = 0;
+    var this_index = 0;    //this_index = oimg.offsetLeft / 500;
+    var that_index = 0;
+
+    for(i=0; i<lis.length; i++){
+        lis[i].index = i;
+        lis[i].onclick = function () {
+            // that_index = this.index;
+
+
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

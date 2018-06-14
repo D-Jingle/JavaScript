@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" onMouseDown="isRight()">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单</title>
+    <style>
+        .li1{
+            list-style: none;
+            border: solid 1px lightgray;
+            line-height: 30px;
+            width: 110px;
+            text-align: center;
+            background-color: #dddddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        #ul1{
+            padding: 0px;
+            display: none;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+<ul id="ul1" >
+    <li class="li1">这是文字</li>
+    <li class="li1">这是文字</li>
+    <li class="li1">这是文字</li>
+    <li class="li1">这是文字</li>
+
+</ul>
+
+
+
+
+<script>
+
+    var oUl = document.getElementById("ul1");
+    document.oncontextmenu = function () {
+        return false;//阻止浏览器默认行为
+    }
+
+    function isRight() {
+        if(event.button == 2)
+            show();
+    }
+
+    function show () {
+        ul1.style.display = "block";
+        ul1.style.position = "fixed";
+        ul1.style.left = event.clientX + "px";
+        ul1.style.top = event.clientY - 18 + "px";
+    }
+
+    document.onclick = function () {
+        oUl.style.display = "none";
+    }
+
+    //获取当前滚动条高度
+    //alert(document.documentElement.scrollTop);
+    
+
+
+
+
+</script>
+</body>
+</html>

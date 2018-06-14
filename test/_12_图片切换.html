@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+</head>
+<style>
+    .simg{
+        height: 100px;
+        width: auto;
+        /*display: block;*/
+        /*float: left;*/
+        vertical-align: top;
+
+    }
+    .bimg{
+        height: 400px;
+        width: 655px;
+        display: none;
+        /*position: relative;*/
+        /*left: 10px;*/
+        margin-bottom: 5px;
+    }
+    #container{
+        margin: 0 auto;
+        width: 660px;
+    }
+    .small-container{
+        /*font-size: 0;*/
+        /*line-height: 0;*/
+        vertical-align: top;
+    }
+    .active{
+        display: block;
+    }
+</style>
+<body>
+<div id="container">
+    <div class="big-img">
+        <img src="../img/111.jpg" class="bimg active">
+        <img src="../img/222.jpg" class="bimg">
+        <img src="../img/333.jpg" class="bimg">
+        <img src="../img/444.jpg" class="bimg">
+    </div>
+    <div class="small-container">
+        <img src="../img/111.jpg" class="simg">
+        <img src="../img/222.jpg" class="simg">
+        <img src="../img/333.jpg" class="simg">
+        <img src="../img/444.jpg" class="simg">
+    </div>
+
+
+    <script>
+        var i;
+        var j = 0;
+        var oImgs1 = document.getElementsByClassName("simg");
+        var oImgs2 = document.getElementsByClassName("bimg");
+        for(i=0; i<oImgs1.length; i++){
+            oImgs1[i].index = i;
+            oImgs1[i].onmousemove = function () {
+                for(j=0; j<oImgs2.length; j++){
+                    oImgs2[j].className = "bimg";
+                }
+                oImgs2[this.index].classList.add("active");
+                // console.log(this);
+            }
+        }
+
+
+
+
+    </script>
+</div>
+</body>
+</html>

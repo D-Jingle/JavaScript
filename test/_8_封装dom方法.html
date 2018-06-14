@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div id="div1"></div>
+<div id="div2">
+    <div class="aaa bbb">111</div>
+    <div class="aaa">222</div>
+    <div class="bbb">333</div>
+</div>
+<div id="div3"></div>
+<script>
+
+    // 封装document.getelementNameByClass
+    // function getClass(cName){
+    //     var thisarr = [];
+    //     var oTag = document.getElementsByTagName("*");
+    //     for(var i=0; i<oDiv.length; i++) {
+    //         if (oDiv[i].className == 'diva') {
+    //             thisarr.push(oDiv[i]);
+    //         }
+    //     }
+    //     return thisarr; // 返回class = cName的数组
+    // }
+
+
+
+    //找到特定对象下class等于特定值的对象(子封装未完成)
+    function get(cName,ob){
+        var thisarr = [];
+        var arr = [];
+        var thisObj = ob||document;
+        var obj = thisObj.getElementsByTagName("*");
+        for (var i=0; i<obj.length; i++){ // 遍历对象
+            arr = obj[i].className.split(" "); // 分割对象的class字符串，保存到数组
+            for (var j=0; j<arr.length; j++){ //  遍历这个对象的class字符串数组
+                if(arr[j] == cName){ // 判断是否有所求classname
+                    thisarr.push(obj[i]); // 有，便push到thisarr数组里
+                }
+            }
+
+        }
+        console.log(thisarr);
+        return thisarr;// 返回数组
+    }
+
+    // function arrIn(arr,str){ //判断数组有无给定字符串
+    //     var arr = arr.split(' ');
+    //     var thisArr = [];
+    //     for(var i=0; i<arr.length; i++){
+    //         if (arr[i] == str) {
+    //             return true;
+    //         }
+    //     }
+    // }
+
+
+    var oDiv = document.getElementById("div2");
+    var aa = get('aaa',oDiv);
+    for(var i=0; i<aa.length; i++){
+        console.log(aa[i].innerHTML);
+    }
+
+</script>
+</body>
+</html>

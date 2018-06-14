@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .container{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .img{
+            width: 1000px;
+            display: none;
+            position: absolute;
+        }
+        .active{
+            width: 1000px;
+            display: block;
+        }
+        .btn1{
+            position: relative;
+            left: 830px;
+            top: 570px;
+            cursor: pointer;
+        }
+        .btn2{
+            position: relative;
+            left: 830px;
+            top: 570px;
+            cursor: pointer;
+        }
+        .ul1{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            top: 530px;
+            width: 150px;
+            margin: 0;
+        }
+        .ul1 .lii{
+            list-style: none;
+            width: 30px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .ul1 .lii:hover {
+            color: white;
+            text-decoration:underline;
+        }
+        .ul1 .active{
+            color: white;
+            text-decoration:underline;
+        }
+
+
+    </style>
+
+
+
+
+</head>
+<body>
+<div class="container">
+    <div class="dimg">
+        <img class="img active" src="../img/111.jpg">
+        <img class="img" src="../img/222.jpg">
+        <img class="img" src="../img/333.jpg">
+        <img class="img" src="../img/444.jpg">
+        <input type="button" value="上一张" class="btn1" onclick="cbtn1()">
+        <input type="button" value="下一张" class="btn2" onclick="cbtn2()">
+        <ul class="ul1">
+            <li class="lii active" onclick="cli1()">1</li>
+            <li class="lii" onclick="cli2()">2</li>
+            <li class="lii" onclick="cli3()">3</li>
+            <li class="lii" onclick="cli4()">4</li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var i = 0;
+    var oImg = document.getElementsByClassName("img");
+    var oLi = document.getElementsByClassName("lii");
+
+    var k = 40;
+    var j = 0;
+
+    function time() {
+        k++;
+        console.log(k);
+        for (i = 0; i < oImg.length; i++) {
+            oImg[i].className = "img";
+            oLi[i].className = "lii";
+        }
+        oImg[(k%4)].className = "img active";
+        oLi[(k%4)].className = "lii active";
+    }
+
+    var timer = setInterval(time,1500);
+
+    for(i=0; i<oImg.length; i++){
+        oImg[i].onmousemove = function () {
+            clearInterval(timer);
+        }
+        oImg[i].onmouseout = function () {
+            timer = setInterval(time,1500);
+        }
+    }
+
+    function cbtn1() {
+        k--;
+        clearInterval(timer);
+        j = k%4;
+            for (i = 0; i < oImg.length; i++) {
+                oImg[i].className = "img";
+                oLi[i].className = "lii";
+            }
+            oImg[j].className = "img active";
+            oLi[j].className = "lii active";
+        console.log(k);
+    }
+
+    function cbtn2() {
+        k++;
+        clearInterval(timer);
+        j = k%4;
+            for (i = 0; i < oImg.length; i++) {
+                oImg[i].className = "img";
+                oLi[i].className = "lii";
+            }
+            oImg[j].className = "img active";
+            oLi[j].className = "lii active";
+        console.log(k);
+    }
+
+    function cli1() {
+        clearInterval(timer);
+        for (i = 0; i < oImg.length; i++) {
+            oImg[i].className = "img";
+            oLi[i].className = "lii";
+        }
+        oImg[0].className = "img active";
+        oLi[0].className = "lii active";
+
+
+    }
+
+    function cli2() {
+        clearInterval(timer);
+        for (i = 0; i < oImg.length; i++) {
+            oImg[i].className = "img";
+            oLi[i].className = "lii";
+        }
+        oImg[1].className = "img active";
+        oLi[1].className = "lii active";
+
+
+    }
+
+    function cli3() {
+        clearInterval(timer);
+        for (i = 0; i < oImg.length; i++) {
+            oImg[i].className = "img";
+            oLi[i].className = "lii";
+        }
+        oImg[2].className = "img active";
+        oLi[2].className = "lii active";
+
+
+    }
+
+    function cli4() {
+        clearInterval(timer);
+        for (i = 0; i < oImg.length; i++) {
+            oImg[i].className = "img";
+            oLi[i].className = "lii";
+        }
+        oImg[3].className = "img active";
+        oLi[3].className = "lii active";
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
