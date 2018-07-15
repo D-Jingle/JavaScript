@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            border: 1px dashed #333;
+            width: 300px;
+        }
+        .content{
+            width: 300px;
+            height: 300px;
+            /*transform: rotate(45deg);*/
+            /*旋转的角度*/
+            /*transform-origin: right top; */
+            /*旋转的中心点。英文，数值，百分比都可以*/
+            /*transform: translate(-20%,-20%);*/
+            /*百分比依据自己的宽度*/
+            /*transform: scale(0.5);*/
+            /*控制缩放比例*/
+            transition: all 1s ease;
+            /*过度*/
+            background-color: red;
+        }
+        .content:hover {
+            transform: translate(50px) rotate(45deg) /*translate(-20%, -20%)*/ scale(1.5);
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content"></div>
+</div>
+
+</body>
+</html>

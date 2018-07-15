@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="body">
+        <input type="text" id="txt">
+        <input type="date" id="date">
+        <input type="button" id="sub" value="提交">
+    </div>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>事件</th>
+                <th>截止日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <!--<tr>-->
+                <!--<td>1</td>-->
+                <!--<td>测试撒啊啊啊</td>-->
+                <!--<td>2018-3-4</td>-->
+                <!--<td><input type="button" value="删除" class="delbtn"></td>-->
+            <!--</tr>-->
+
+        </tbody>
+    </table>
+
+    <script>
+        var oTxt = document.getElementById('txt');
+        var oDate = document.getElementById('date');
+        var oTb = document.getElementById('tb');
+        var oSub = document.getElementById('sub');
+        var aDelbtn = document.getElementsByClassName('delbtn');
+        var index = 0;
+        var thisHtml = '';
+        var i = 0;
+
+        oSub.onclick = function () {
+            index++;
+            var txt = oTxt.value;
+            var date = oDate.value;
+            thisHtml = '<tr><td>'+ index+ '</td><td>'+ txt + '</td><td>' + date + '</td><td><input type="button" value="删除" class="delbtn"></td></tr>';
+            oTb.innerHTML += thisHtml;
+        }
+
+
+        // 运用事件委托
+        oTb.onclick = function(e){
+            if(e.target.className == 'delbtn') {
+                e.target.parentElement.parentElement.remove();
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>

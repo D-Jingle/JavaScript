@@ -1,0 +1,260 @@
+body{
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+ul{
+    padding: 0;
+    margin: 0;
+    /*display: none;*/
+}
+li{
+    list-style: none;
+}
+
+
+#head{
+    height: 32px;
+    width: auto;
+    padding: 0 105px;
+    background-color: #f2f2f2;
+    font-family: "Microsoft YaHei", tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+    font-size: 12px;
+    color: #999999;
+    line-height: 32px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    left: -15px;
+}
+#head .left .sp1{
+    padding-left: 20px;
+    padding-right: 10px;
+}
+#head .left .sp2{
+    padding: 0 10px;
+}
+#head li{
+    padding: 0 10px;
+}
+
+#head .right{
+    position: absolute;
+    top: 0;
+    right: 105px;
+    height: 32px;
+}
+.right ul{
+    flex-direction: row;
+}
+
+.right ul li{
+    display: inline-block;
+}
+.right span{
+    border: 10px;
+    height: 0;
+    width: 0px;
+}
+.right ul li:hover{
+    color: red;
+    cursor: pointer;
+}
+.sp1:hover{
+    color: red;
+    cursor: pointer;
+}
+.sp2:hover{
+    color: red;
+    cursor: pointer;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.slider{
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    height: 500px;
+}
+.slider-panner{
+    width: 100%;
+    position: absolute;
+    transition: all 1s ease;
+    opacity: 0;
+}
+.slider-panner div{
+    width: 1230px;
+    margin: 0 auto;
+}
+img{
+    width: auto;
+    height: 500px;
+}
+.active{
+    opacity: 1;
+    z-index: 2;
+}
+.search-container{
+    margin: 0 45px;
+    /*width: 100%;*/
+    height: 133px;
+    position: relative;
+}
+.tmall-logo{
+    /*width: 100%;*/
+    height: 130px;
+    margin: 0 25px;
+}
+.tmall-logo img{
+    width: 240px;
+    height: 120px;
+    margin-top: 13px;
+}
+.src-input{
+    width: 490px;
+    height: 36px;
+    outline: 0;
+}
+.search-box{
+    border: solid 2px #FF0036;
+    width: 494px;
+    height: 42px;
+}
+.search{
+    position: absolute;
+    left: 360px;
+    top: 37px;
+}
+input::-webkit-input-placeholder{
+    font-size: 14px;
+    opacity: 0.5;
+}
+.sousuo{
+    width: 140px;
+    background-color: #ff0036;
+    height: 46px;
+    position: absolute;
+    left: 495px;
+    top: 0;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+}
+.search-list{
+
+}
+.search-ul{
+    padding-top: 5px;
+    overflow: hidden;
+}
+.li1{
+    color: #ff0036;
+}
+.li2{
+    color: #999;
+}
+.search-ul li{
+    display: inline-block;
+    font-size: 14px;
+    /*color: #999;*/
+    border-left: solid 1px #ccc;
+    padding: 0 8px 0 12px;
+    position: relative;
+    left: -8px;
+    cursor: pointer;
+}
+.tiaotiao {
+    width: 100%;
+    height: 36px;
+}
+.fenlei{
+    background-color: red;
+    margin:  0 0 0 90px;
+    height: 36px;
+    line-height: 26px;
+    width: 185px;
+    padding-left: 15px;
+    /*padding-top: 10px;*/
+    display: inline-block;
+}
+.fenlei img{
+    margin-top: 10px;
+    width: 17px;
+    height: 16px;
+}
+.fenlei div{
+    position: relative;
+    left: 28px;
+    top: -28px;
+    color: #fff;
+    font-weight: bolder;
+}
+.tiaotiao .list{
+    width: 800px;
+    height: 37px;
+    display: inline-block;
+    position: relative;
+    left: -5px;
+    top: -16px;
+}
+.list img{
+    height: 33px;
+    width: auto;
+    display: inline-block;
+}
+.list ul{
+    display: inline-block;
+    position: relative;
+    top: -12px;
+}
+.menu li{
+    display: inline-block;
+    line-height: 33px;
+    padding-right: 10px;
+    font-weight: 500;
+}
+.menu li:hover{
+    color: red;
+    cursor: pointer;
+}
+.fenge{
+    width: 100%;
+    height: 2px;
+    background-color: #ff0036;
+}
+.large-menu{
+    width: 200px;
+    height: 500px;
+    background:rgba(0,0,0,0.55);
+    /*只有背景透明 把背景设置为rgb形式*/
+    /*opacity: 0.5;*/
+    position: absolute;
+    left: 90px;
+    top: 204px;
+    z-index: 3;
+}
+.large-menu ul li{
+    height: 31.2px;
+    line-height: 31.2px;
+    padding-left: 37px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+.large-menu ul li:hover{
+    background-color: #FFFFFF;
+    color: #da6c9b;
+    font-weight: bolder;
+}
+.fenge2{
+    height: 50px;
+    width: 100%;
+    /*background-color: red;*/
+}
+.detail-left{
+    height: 300px;
+    background-color: #999999;
+}

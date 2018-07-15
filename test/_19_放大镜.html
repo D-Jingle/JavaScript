@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div{
+            background-color: red;
+            opacity: 0.5;
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 3;
+        }
+        #div2{
+            width: 250px;
+            height: 250px;
+            display: inline-block;
+        }
+        #div2 img{
+            width: 250px;
+            height: 250px;
+        }
+        #bigdiv img{
+            width: 500px;
+            height: 500px;
+        }
+        #bigdiv{
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            display: inline-block;
+        }
+        #bigimg{
+            position: relative;
+            left: 0px;
+            top: 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">
+        <img src="../img/222.jpg" alt="">
+        <div id="div">
+        </div>
+    </div>
+
+    <div id="bigdiv">
+            <img src="../img/222.jpg" alt="" id="bigimg">
+    </div>
+
+
+    <script>
+        var oDiv = document.getElementById("div");
+        var oDiv2 = document.getElementById('div2');
+        var oBigimg = document.getElementById('bigimg');
+
+            oDiv2.onmousemove= function (e) {
+                var moveLeft = e.clientX - oDiv.offsetWidth/2;
+                var moveTop = e.clientY - oDiv.offsetWidth/2;
+                var maxNum = oDiv2.offsetWidth - oDiv.offsetWidth;
+
+                if(moveLeft <= 0){
+                    moveLeft = 0;
+                }
+                if(moveLeft >= maxNum){
+                    moveLeft = maxNum;
+                }
+                if(moveTop <= 0){
+                    moveTop = 0;
+                }
+                if(moveTop >= maxNum){
+                    moveTop = maxNum;
+                }
+
+                oDiv.style.left = moveLeft + "px";
+                oDiv.style.top = moveTop + "px";
+
+                oBigimg.style.left = -moveLeft*2 + "px";
+                oBigimg.style.top = -moveTop*2 + "px";
+            };
+
+
+    </script>
+
+
+
+</body>
+</html>

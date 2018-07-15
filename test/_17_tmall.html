@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/tmall.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--头部-->
+    <div id="head">
+        <div class="left">
+            <span class="sp">喵，欢迎来天猫</span>
+            <span class="sp sp1">请登录</span>
+            <span class="sp sp2">免费注册</span>
+        </div>
+        <div class="right">
+            <ul>
+                <li>我的淘宝<div></div></li>
+                <li>购物车<span style="font-weight: bolder">0</span>件</li>
+                <li>收藏夹</li>
+                <li>手机版</li>
+                <li>淘宝网</li>
+                <li>商家支持</li>
+                <li>网站导航</li>
+            </ul>
+        </div>
+    </div>
+    <!--头部结束-->
+
+    <!--主体-->
+    <div id="body">
+        <!--脖子-->
+        <div class="search-container">
+            <!--logo-->
+            <div class="tmall-logo">
+                <img src="../img/tmall-logoo.png" alt="">
+            </div>
+            <!--搜索框和下面的列表-->
+                <div class="search">
+                    <div class="search-box">
+                        <input type="text" placeholder="  搜索 天猫 商品/品牌/店铺" class="src-input">
+                        <div>
+                            <input type="button" value="搜 索" class="sousuo">
+                        </div>
+                    </div>
+                    <div class="search-list">
+                        <ul class="search-ul">
+                            <li class="li2">针织衫</li>
+                            <li class="li1">连衣裙</li>
+                            <li class="li2">四件套</li>
+                            <li class="li1">摄像头</li>
+                            <li class="li2">客厅灯</li>
+                            <li class="li2">口红</li>
+                            <li class="li1">手机</li>
+                            <li class="li2">运动鞋</li>
+                            <li class="li1">牛奶</li>
+                        </ul>
+                    </div>
+                </div>
+            <!--搜索框和列表结束-->
+        </div>
+        <!--脖子结束-->
+
+        <!--第二个脖子-->
+        <div class="tiaotiao">
+            <div class="fenlei">
+                <img src="../img/xiaoxiao.png" alt="">
+                <div>商品分类</div>
+            </div>
+            <div class="list">
+                <img src="../img/tmallsupermacate.png" alt="">
+                <ul class="menu">
+                    <li>天猫会员</li>
+                    <li>电器城</li>
+                    <li>喵鲜生</li>
+                    <li>医药馆</li>
+                    <li>营业厅</li>
+                    <li>魅力会</li>
+                    <li>飞猪旅行</li>
+                    <li>苏宁易购</li>
+                </ul>
+            </div>
+        </div>
+        <!--第二个脖子结束-->
+        <div class="fenge">
+
+        </div>
+        <!--轮播图-->
+        <div class="slider">
+            <div class="slider-panner sp1 active" style="background-color: rgb(232, 232, 232)">
+                <div>
+                    <img src="https://img.alicdn.com/simba/img/TB1fN3WA7CWBuNjy0FaSutUlXXa.jpg" alt="">
+                </div>
+            </div>
+            <div class="slider-panner sp2" style="background-color: rgb(0,0,0)">
+                <div>
+                    <img src="https://img.alicdn.com/tps/i4/TB1o_JiAVOWBuNjy0FiSutFxVXa.jpg" alt="">
+                </div>
+            </div>
+            <div class="slider-panner sp3" style="background-color: rgb(232,232,232)">
+                <div>
+                    <img src="https://img.alicdn.com/simba/img/TB114X1gBjTBKNjSZFuSuv0HFXa.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <script>
+            var aSP = document.querySelectorAll(".slider-panner");
+            var index = 0;
+            setInterval(function () {
+                aSP[index].classList.remove("active");
+                if(index == 2){
+                    index = -1;
+                }
+                aSP[++index].classList.add("active");
+            },2000);
+        </script>
+        <!--轮播图结束-->
+
+        <div class="large-menu">
+            <ul>
+                <li>女装/内衣</li>
+                <li>男装/户外运动</li>
+                <li>女鞋/男鞋/箱包</li>
+                <li>美妆/个人护理</li>
+                <li>腕表/眼镜/珠宝首饰</li>
+                <li>手机/数码/电脑办公</li>
+                <li>母婴玩具</li>
+                <li>零时/茶酒/进口食品</li>
+                <li>生鲜水果</li>
+                <li>大家电/生活电器</li>
+                <li>家具建材</li>
+                <li>汽车/配件/用品</li>
+                <li>家纺/家饰/鲜花</li>
+                <li>医药保健</li>
+                <li>厨具/收纳/宠物</li>
+                <li>图书音像</li>
+            </ul>
+        </div>
+        <div class="fenge2"></div>
+        <div class="detail-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 detail-left">
+
+                    </div>
+                    <div class="col-md-10"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--尾部-->
+    <div id="foot">
+    </div>
+    <!--尾部结束-->
+</body>
+</html>
