@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: relative;
+            animation:test 4s ease infinite;
+
+        }
+
+        @keyframes  test{
+            0%{
+                top: 0;
+                left: 0;
+            }
+            25%{
+                top: 0;
+                left: 200px;
+            }
+            50%{
+                top: 200px;
+                left: 200px;
+            }
+            75%{
+                top:200px;
+                left: 0;
+            }
+            100%{
+                top:0;
+                left: 0;
+            }
+        }
+
+
+        /*#div{*/
+            /*margin: 200px auto;*/
+            /*width: 300px;*/
+            /*height: 300px;*/
+            /*perspective: 1000px;*/
+            /*!*只给亲子代添加视角,在父元素设置*!*/
+            /*!*transform-style: preserve-3d;      *!*/
+            /*!*使已经实现动画的元素的子代也实现3d效果*!*/
+            /*border: 1px black dashed;*/
+        /*}*/
+        /*#aaa{*/
+            /*background-color: red;*/
+            /*width: 300px;*/
+            /*height: 300px;*/
+            /*transform: rotateY(30deg);*/
+        /*}*/
+
+    </style>
+
+</head>
+<body>
+    <div id="div">
+        <!--<div id="aaa">测试测试</div>-->
+    </div>
+    <!--<div id="text"></div>-->
+</body>
+<script>
+</script>
+</html>
