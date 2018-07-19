@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        #li{
+            width: 30px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="in">
+    <ul>
+        <li>123</li>
+        <li>234</li>
+        <li>345</li>
+        <li>456</li>
+        <li>567</li>
+        <li>678</li>
+        <li>789</li>
+        <li>890</li>
+        <li>901</li>
+        <li>012</li>
+    </ul>
+
+<script>
+    $("#in").on('keyup',function () {
+        // console.log(this.value);
+        var that = this;
+        // console.log(that.value);
+        $("li").css('background','none');
+        if(this.value)
+            $("li:contains('" + that.value + "')").css('background','red');
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <h2>你爱好的运动是啥啊？</h2>
+
+    <div>
+        <input type="checkbox" name="hobby">足球
+        <input type="checkbox" name="hobby">排球
+        <input type="checkbox" name="hobby">篮球
+        <input type="checkbox" name="hobby">羽毛球
+    </div>
+    <input type="button" value="全选" id="btn1">
+    <input type="button" value="全不选" id="btn2">
+    <input type="button" value="反选" id="btn3">
+    <script src="../js/jquery.js"></script>
+    <script>
+        $("#btn1").click(function () {
+            $('input').prop('checked','checked');
+        })
+        $("#btn2").click(function () {
+            $("input").prop('checked','');
+        })
+        $("#btn3").click(function () {
+            $('input').each(function (index,ele) {
+
+                // 第一种方法
+                // var flag = $(this).prop('checked');
+                // // console.log(flag);
+                // $(this).prop('checked',!flag);
+
+                // 第二种方法
+                var flag = $(ele).prop('checked');
+                // console.log(flag);
+                $(ele).prop('checked',!flag);
+            })
+
+        })
+
+        //第三种方法
+        $("#btn3").click(function () {
+            var ischeck = $('input:checkbox:checked');
+            var uncheck = $('input:checkbox:not(:checked)');
+        })
+
+
+
+
+
+        // $('#btn1').on('click',function () {
+        //     $('input:checkbox').prop('checked','checked');
+        // });
+        //
+        // arr.forEach(function (value, index, array) {
+        //
+        // })
+        //
+        // var arr = ['a','b','c'];
+        // $(arr).each(function (index,ele) {
+        //     console.log(index,ele);
+        // });
+
+
+
+    </script>
+</body>
+</html>
