@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    tr:nth-child(3n+1){
+        background-color: yellow;
+    }
+    .disa{
+        display: none;
+    }
+    td{
+        width: 70px;
+    }
+</style>
+<body>
+<table>
+    <tr class="tr">
+        <td>张三</td>
+        <td>男</td>
+        <td>哈尔滨</td>
+    </tr>
+    <tr class="tr11">
+        <td>李四</td>
+        <td>女</td>
+        <td>吉林吉林</td>
+    </tr>
+    <tr class="tr11">
+        <td>王五</td>
+        <td>男</td>
+        <td>浙江温州</td>
+    </tr>
+    <tr class="tr">
+        <td>赵六</td>
+        <td>男</td>
+        <td>嘉兴市</td>
+    </tr>
+    <tr class="tr22">
+        <td>rain</td>
+        <td>男</td>
+        <td>浙江宁波</td>
+    </tr>
+    <tr class="tr22">
+        <td>maxman</td>
+        <td>女</td>
+        <td>浙江杭州</td>
+    </tr>
+    <tr class="tr">
+        <td>张三</td>
+        <td>男</td>
+        <td>哈尔滨</td>
+    </tr>
+    <tr class="tr33">
+        <td>张三</td>
+        <td>男</td>
+        <td>哈尔滨</td>
+    </tr>
+    <tr class="tr33">
+        <td>张三</td>
+        <td>男</td>
+        <td>哈尔滨</td>
+    </tr>
+</table>
+
+<script src="../js/jquery.js"></script>
+
+<script>
+    $("tr:nth-child(3n+1)").on('click',function () {
+        $(this).nextUntil(".tr").toggleClass('disa');
+        // $(this).siblings($('.tr')).toggleClass('disa');
+        
+    })
+
+</script>
+
+
+
+</body>
+</html>

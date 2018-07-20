@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .active{
+            
+        }
+        body{
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
+    <input type="button" id="btn1" value="变大">
+    <input type="button" id="btn2" value="变小">
+    <br>
+    <textarea name="bala" id="txt" cols="30" rows="10">多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化</textarea>
+
 
 </body>
+    <script src="../js/jquery.js"></script>
+    <script>   
+        $("#btn1").on('click',function () {
+            console.log($("#txt").outerHeight());
+            // if($("#txt").outerHeight() < 300)
+            //     $("#txt").css('height',$("#txt").outerHeight()+50);
+            $("#txt").css('height',$("#txt").height()<300?($("#txt").height()+100):$("#txt").height());
+
+        })
+        $("#btn2").on('click',function () {
+            console.log($("#txt").outerHeight());
+            // if($("#txt").outerHeight() > 154)
+            //     $("#txt").css('height',$("#txt").outerHeight()-50);
+            $("#txt").css('height',$("#txt").height()>=156?($("#txt").height()-100):$("#txt").height());
+        })
+    </script>
+
 </html>
