@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<fieldset>
+    <legend>个人基本信息</legend>
+    <span>名称：</span>
+    <input type="text" value="名称">
+    <br>
+    <span>密码:</span>
+    <input type="text" value="密码">
+    <br>
+    <span>详细信息:</span>
+    <textarea name="detail" id="detail" cols="30" rows="5">文本框</textarea>
+</fieldset>
+<script src="../js/jquery.js"></script>
+<script>
+    // $("input").focus(function () {
+    //     $('textarea').css('background','white');
+    //     $('input').css('background','white');
+    //     $(this).css("background",'red');
+    // })
+    // $("textarea").focus(function () {
+    //     $('input').css('background','white');
+    //     $(this).css("background",'red');
+    // })
+    // $("input").blur(function () {
+    //     this.value = this.defaultValue;
+    //     $(this).css("background",'white');
+    // })
+    // $("textarea").blur(function () {
+    //     $(this).css("background",'white');
+    // })
+
+    $(":input").on('focus',function () {
+        this.value = '';
+        $(this).css('background','white');
+        $(this).css("background",'pink');
+    })
+
+    $(":input").on('blur',function () {
+        this.value = this.defaultValue;
+        $(this).css("background",'white');
+    })
+
+
+
+
+</script>
+</body>
+</html>

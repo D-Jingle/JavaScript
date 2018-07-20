@@ -3,8 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        #box{
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+        #top{
+            border-bottom: black 1px solid;
+        }
+        #top ul li{
+            display: inline-block;
+            width: 180px;
+            height: auto;
+            list-style: none;
+        }
+        #body ul{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+
+
 </head>
 <body>
+    <div id="box">
+        <div id="top">
+            <ul>
+                <li id="p1">第一页</li>
+                <li id="p2">第二页</li>
+                <li id="p3">第三页</li>
+            </ul>
+        </div>
+        <div id="body">
+            <ul class="active">
+                <li>111</li>
+                <li>111</li>
+                <li>111</li>
+            </ul>
+            <ul>
+                <li>222</li>
+                <li>222</li>
+                <li>222</li>
+                <li>222</li>
+            </ul>
+            <ul>
+                <li>333</li>
+                <li>333</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="../js/jquery.js"></script>
+
+    <script>
+        $('#p1').on("click",function () {
+            // console.log("aaa");
+            $(this).addClass("active").siblings().removeClass("active");
+
+        })
+
+
+    </script>
+
+
 
 </body>
 </html>
