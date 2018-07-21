@@ -30,7 +30,10 @@ $(document).ready(function () {
         },
         error:function(){
             alert('fail');
+        },
+        complete:function () {
+            alert("yeyeye");
         }
     });
-    console.log('aaa');
+    // console.log('aaa');
 });

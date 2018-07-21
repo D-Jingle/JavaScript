@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="fadein"> fadein</button>
+    <button id="fadeout"> fadeout</button>
+    <button id="fadetoggle"> fadetoggle</button>
+    <button id="sd"> sd</button>
+    <button id="su"> su</button>
+    <button id="st"> st</button>
+    <button id="start"> start</button>
+    <button id="11">stop()</button>
+    <button id="22">stop(true)</button>
+    <button id="33">stop(false,true)</button>
+    <button id="44">stop(true,true)</button>
+
+
+
+
+    <div class="box"></div>
+
+
+
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        $('#fadein').on('click',function () {
+            $('.box').fadeIn();
+        });
+        $('#fadeout').on('click',function () {
+            $('.box').fadeOut();
+        });
+        $('#fadetoggle').on('click',function () {
+            $('.box').fadeToggle();
+        });
+        $('#sd').on('click',function () {
+            $('.box').slideDown();
+        });
+        $('#su').on('click',function () {
+            $('.box').slideUp();
+        });
+        $('#st').on('click',function () {
+            $('.box').slideToggle();
+        });
+        $('#start').on('click',function () {
+            $('.box').animate({
+                height: 400,
+                width: 200
+            },1000,'swing',function () {
+                console.log('1done');
+            })
+            $('.box').animate({
+                height: 400,
+                width: 400
+            },1000,'swing',function () {
+                console.log('2done');
+            })
+            $('.box').animate({
+                height: 200,
+                width: 400
+            },1000,'swing',function () {
+                console.log('3done');
+            })
+            $('.box').animate({
+                height: 200,
+                width: 200
+            },1000,'swing',function () {
+                console.log('4done');
+            })
+        });
+        $('#11').on('click',function () {
+            $('.box').stop();
+        })
+        $('#22').on('click',function () {
+            $('.box').stop(true);
+        })
+        $('#33').on('click',function () {
+            $('.box').stop(false,true);
+        })
+        $('#44').on('click',function () {
+            $('.box').stop(true,true);
+        })
+
+
+
+    </script>
+</body>
+</html>

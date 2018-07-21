@@ -81,22 +81,28 @@
 
     <script src="../js/jquery.js"></script>
     <script>
-        // $("input").hide();
         $('tr td:nth-child(2)').on('click',function () {
-            // console.log(this.innerText);
-            var inp = $('<input type="text" value="  '+ this.innerText +' ">');
-            this.innerText = '';
-            // if()
-            $(this).append(inp);
-
+            if($(this).children('input').length == 0){
+                // console.log(this.innerText);
+                var inp = $('<input type="text" value="  '+ this.innerText +' ">');
+                this.innerText = '';
+                $(this).append(inp);
+                inp.focus();
+            }
         });
+
+        // 第一种方法
         $('tbody').on("blur",'input',function () {
             console.log($('input').val());
             $(this).parent().html($('input').val());
             $(this).remove('input');
         });
-        // $('tbody').on("focusout",function () {
-        //
+
+        // 第二种方法
+        // $('tr td:nth-child(2)').on("focusout",function () {
+        //     var child = $(this).children('input');
+        //     $(this).text(child.val());
+        //     // $(this).text($(this).find("input").val());
         // });
     </script>
 
