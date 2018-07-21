@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{
+            width: 150px;
+        }
+        tr{
+            height: 23px;
+        }
+        th{
+            text-align: center;
+        }
+        .txt1{
+            position: absolute;
+            top: 56px;
+            left: 160px;
+        }
+        .txt2{
+            position: absolute;
+            top: 79px;
+            left: 160px;
+        }
+        .txt3{
+            position: absolute;
+            top: 102px;
+            left: 160px;
+        }
+        .txt4{
+            position: absolute;
+            top: 125px;
+            left: 160px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
+        <thead>
+            <tr>
+                <th colspan="2">鼠标点击表格编辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="text-align: center">
+                <td>学号</td>
+                <td>姓名</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    代靖
+                    <!--<input type="text" class="txt1">-->
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    戈晓楠
+                    <!--<input type="text" class="txt2">-->
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    李振婷
+                    <!--<input type="text" class="txt3">-->
+                </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>
+                    郑殿双
+                    <!--<input type="text" class="txt4">-->
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        // $("input").hide();
+        $('tr td:nth-child(2)').on('click',function () {
+            // console.log(this.innerText);
+            var inp = $('<input type="text" value="  '+ this.innerText +' ">');
+            this.innerText = '';
+            // if()
+            $(this).append(inp);
+
+        });
+        $('tbody').on("blur",'input',function () {
+            console.log($('input').val());
+            $(this).parent().html($('input').val());
+            $(this).remove('input');
+        });
+        // $('tbody').on("focusout",function () {
+        //
+        // });
+    </script>
+
+
+</body>
+</html>
