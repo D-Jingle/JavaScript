@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url: "http://222.27.227.102:8080/bxwl/pic",
+        url: "https://www.nefuer.cc/pic",
         type: "get",
         dataType:"json",
         contentType : 'application/json',
@@ -18,6 +18,7 @@ $(document).ready(function () {
                     }
 
                 }
+                console.log(result);
 
             }
             if(result.code==1){

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/choose-seat.css">
+</head>
+<body>
+<div class="container">
+    <div class="head">
+        <span class="text">
+            <h1>&nbsp;&nbsp;今天 1月6日 13：20</h1>
+        </span>
+    </div>
+    <div class="exp">
+        <ul>
+            <li>
+                <div class="ex remain-seat"></div>
+                <h3>可选</h3>
+            </li>
+            <li>
+                <div class="ex selected-seat"></div>
+                <h3>已选</h3>
+            </li>
+            <li>
+                <div class="ex sold-seat"></div>
+                <h3>已售</h3>
+            </li>
+        </ul>
+    </div>
+    <div class="sell-body">
+        <div class="sell left">
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+        </div>
+        <div class="sell right">
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+            <ul class="seat-ul">
+            </ul>
+        </div>
+    </div>
+    <div class="selected">
+        <div><span><h2>已选座位</h2></span><span>最多可选5个座位</span></div>
+        <div class="outer-message">
+        </div>
+
+    </div>
+    <div class="foot">
+        <div class="foot-left">
+            <h3>合计：  </h3>
+            <span class="all-money">¥0</span>
+        </div>
+        <div class="foot-right">
+            <h4>确认选座</h4>
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/jquery.js"></script>
+<script>
+    var i = 0;
+    var thisHtml = '';
+    var thisHtml2 = '';
+    var thisHtml3 = '';
+    var b = 0;
+    var n = 0;
+    var m = 0;
+    var key = 0;
+    
+    for(j=0; j<5; j++){
+        thisHtml += '<li class="seat"></li>';
+        // console.log(Math.random());
+        $('.seat-ul').html(thisHtml);
+    }
+
+
+
+    for(j=0; j<$("li").length; j++){
+        $('li').eq(j).attr('num',j-2);
+        // console.log($('li').eq(j).attr('num'));
+    }
+
+    $('.seat-ul li').each(function (index) {
+        var a = Math.random()
+        if(a<0.5){
+            $(this).addClass('remain-seat');
+        } else {
+            $(this).addClass('sold-seat');
+        }
+
+    })
+
+    $('li').on('click',function () {
+        if($(this).hasClass('sold-seat')){
+            return;
+        }
+        b++;
+        if(b>5){
+           alert("只能选五个!");
+           return;
+        }
+        $(this).addClass('selected-seat');
+        key = $(this).attr('num');
+        // console.log(key);
+        if(key < 26){
+            n = Math.ceil(key/5);
+            m =  key%5;
+            if(m == 0)
+                m=5;
+        }
+        if(key > 25){
+            key = key - 25;
+            n = Math.ceil(key/5);
+            m =  key%5 + 5;
+            if(m == 5)
+                m=10;
+        }
+        console.log(n,m);
+        thisHtml2 += '<div class="message"> <span>' + n + '</span>排<span>' + m + '</span>座</div>';
+        $('.outer-message').html(thisHtml2);
+
+        thisHtml3 = '<h3>合计：  </h3><span class="all-money">¥' + 50*b + '</span>   <span>¥50*</span><span>' + b + '</span>'
+
+        $('.foot-left').html(thisHtml3);
+
+    })
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.remain-seat{
+    background-color: yellowgreen;
+}
+.selected-seat{
+    background-color: red;
+}
+.sold-seat{
+    background-color: #dddddd;
+}
+.container{
+    height: auto;
+    width: 750px;
+    margin: 0 auto;
+}
+.head{
+    height: 130px;
+    width: 100%;
+    background-color: #faf2cc;
+}
+.text{
+    /*text-align: center;*/
+    line-height: 130px;
+}
+.exp{
+    /*margin: 20px 0;*/
+    padding: 20px 20px 10px 20px;
+    border-bottom: #dddddd solid 1px;
+}
+.ex{
+    height: 30px;
+    width: 40px;
+    display: inline-block;
+}
+li{
+    display: inline-block;
+}
+h3{
+    display: inline-block;
+}
+.sell-body{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.sell{
+    width: 350px;
+    height: 380px;
+    display: inline-block;
+    padding: 0 10px;
+}
+.seat{
+    height: 30px;
+    width: 40px;
+    margin: 20px 10px;
+}
+.seat-ul{
+    display: flex;
+    justify-content: center;
+}
+.selected{
+    height: 150px;
+}
+.foot{
+    line-height: 50px;
+    height: 50px;
+    width: 100%;
+    background-color: #faf2cc;
+}
+.foot-left{
+    display: inline-block;
+    width: 75%;
+    padding-left: 30px;
+}
+.foot-right{
+    display: inline-block;
+    width: 20%;
+}
+.all-money{
+    color: red;
+    font-size: 1.17em;
+}
+h2{
+    display: inline-block;
+    width: 100px;
+}
+.message{
+    display: inline-block;
+    margin: 20px 10px;
+    border: 1px solid black;
+    padding: 5px 10px;
+}

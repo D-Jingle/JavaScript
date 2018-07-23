@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.slider-panner{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+ul{
+    margin:0 auto;
+    width: max-content;
+    position: relative;
+    top: 450px;
+    z-index: 3;
+}
+li{
+    position: relative;
+    width: 50px;
+    height: 5px;
+    list-style: none;
+    display: inline-block;
+}
+.num{
+    background: #8c8c8c;
+}
+.active{
+    background: white;
+}
