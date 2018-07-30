@@ -7,18 +7,19 @@
         *{
             margin: 0;
             padding: 0;
+            text-align: center;
         }
         body{
+            max-width: 960px;
             width: 75%;
             height: auto;
             margin: 0 auto;
             padding: 0;
-            font-size: 20px;
+            font-size: 18px;
         }
         .head,.nav,.foot{
-            height: 80px;
+            height: 8vw;
             width: 100%;
-            line-height: 80px;
             text-align: center;
             background-color: #dddddd;
             margin-bottom: 10px;
@@ -28,11 +29,14 @@
             width: 100%;
         }
         .left,.right{
-            display: inline-block;
-            height: 300px;
-            width: 49.6%;
-            word-wrap: break-word;
+            height: 20vw;
+            width: 49%;
             margin-bottom: 5px;
+            vertical-align: top;
+            /*display: table-cell;*/
+        }
+        .left p,.right p{
+            vertical-align: middle;
         }
         .left{
             background: #c7ddef;
@@ -41,9 +45,9 @@
             background: #faf2cc;
         }
 
-        @media (max-width: 880px) {
+        @media (max-width: 500px) {
             .left,.right{
-                height: ;
+                height: 20vw;
                 width: 100%;
                 word-wrap: break-word;
                 margin-bottom: 5px;
@@ -55,6 +59,11 @@
                 background: #faf2cc;
             }
         }
+
+        /*.container{*/
+            /*display:table;vertical-align:middle;*/
+        /*}*/
+
 
     </style>
 
@@ -68,8 +77,10 @@
         <img src="../img/333.jpg" alt="">
     </div>
     <div class="container">
-        <div class="left">cjhaiuvnahjebvklhbeilnvaenhfuiaewhfuilahfjkdsbvjkhdfbsvihbdjbavba</div>
-        <div class="right">vnaueirdfhjkauyhrgfiuerlbgvhauilhvnrdbvhjdfbviueabvnjhdbfsvfabevbdf</div>
+        <div class="left">
+            <p>cjhaiuvn ahjeb vklh beilnva enhfui aew hfuila hfj kdsbvj khdfb svihb djbav ba </p></div>
+        <div class="right"><p>cjhaiuvn ahjeb vklh beilnva enhfui aew hfuila hfj kdsbvj khdfb svihb djbav ba </p></div>
+    </div>
     </div>
     <div class="foot">foot</div>
 

@@ -48,19 +48,19 @@
 <body>
     <div id="box">
     </div>
-    <!--<script>-->
-        <!--var oBox = document.getElementById('box')-->
-        <!--window.onresize = function () {-->
-            <!--var thisWidth = document.documentElement.getBoundingClientRect().width;-->
-            <!--if(thisWidth<1000 && thisWidth> 500){-->
-                <!--oBox.style.backgroundColor = "blue";-->
-            <!--} else if(thisWidth<=500){-->
-                <!--oBox.style.backgroundColor = "yellow";-->
-            <!--} else {-->
-                <!--oBox.style.backgroundColor = "red";-->
-            <!--}-->
-        <!--}-->
-    <!--</script>-->
+    <script>
+        var oBox = document.getElementById('box')
+        window.onresize = function () {
+            var thisWidth = document.documentElement.getBoundingClientRect().width;
+            if(thisWidth<1000 && thisWidth> 500){
+                oBox.style.backgroundColor = "blue";
+            } else if(thisWidth<=500){
+                oBox.style.backgroundColor = "yellow";
+            } else {
+                oBox.style.backgroundColor = "red";
+            }
+        }
+    </script>
 
 </body>
 </html>
