@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // var obj = {
+    //     name:'xiaoming'
+    // };
+    // var jstr = JSON.stringify(obj)
+    // console.log(JSON.stringify(obj));
+    // console.log(JSON.parse(jstr));
+    // // var jstr = "{'name':'xiaoming'}";
+
+    var obj1 = {
+        name: 'xiaoming',
+        age: 20,
+        school: 'linda',
+        teacher:{
+            name:'lisi',
+            age: 40
+        }
+    };
+
+    // 栈内存和对内存
+
+    // var obj2 = obj1; // 引用数据类型传递的引用的地址
+
+    // obj1.name = 'xiaohong';
+    // console.log(obj2);
+
+    // 深克隆
+    function clones(obj) {
+        var obj2={};
+        for(key in obj){
+            if(typeof obj[key] == 'object'){
+                 obj2[key] = clones(obj[key]);
+            } else {
+                obj2[key] = obj1[key];
+            }
+        }
+        return obj2;
+    }
+
+
+    var obj3 = clones(obj1);
+    obj3.teacher.name = 'zhangsan';
+    console.log(obj1,obj3);
+
+
+
+</script>
+</body>
+</html>

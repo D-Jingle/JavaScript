@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--历史管理 hash-->
+    <span id="num"></span>
+    <button id="btn">anniu</button>
+
+    <script>
+        var obj = {};
+        var oBtn = document.getElementById('btn');
+        var num = document.getElementById('num');
+        oBtn.onclick = function () {
+            var arr = [];
+            for(var i=0;i<5;i++)
+                arr.push( Math.ceil(Math.random()*10));
+            num.innerHTML = arr;
+
+            var rad = Math.random();
+            location.hash = rad;
+            obj[location.hash] = arr;
+        };
+
+        window.onhashchange = function () {
+            console.log(obj[location.hash]);
+        };
+
+        var test = 'school'; // 变量test值里存的是obj的属性名字
+        var obj = {
+            name: 'xiaoming',
+            school:'heida',
+        }
+
+        console.log(obj[test]);
+        console.log(obj['school']);
+        console.log(obj.school);
+    </script>
+
+</body>
+</html>

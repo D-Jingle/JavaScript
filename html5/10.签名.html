@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #can{
+            background-color: black;
+            /*canvas不要在这里写高宽*/
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" height="400" width="400">
+    </canvas>
+
+    <script src="../js/jquery.js"></script>
+    <script>
+        var flag = true;
+        var oCan = document.getElementById("can");
+        var can = oCan.getContext('2d');
+        can.strokeStyle='#fff';
+        can.lineWidth=2;
+        oCan.onmousedown = function (e) {
+            flag = true;
+            can.beginPath();
+            can.moveTo(e.clientx,e.clientY);
+            oCan.onmousemove = function (e) {
+                if(flag == true){
+                    // console.log(e.clientY,e.clientY);
+                    can.lineTo(e.clientX,e.clientY);
+                    can.stroke();
+                }
+            }
+        };
+
+        oCan.onmouseup = function () {
+            flag = false;
+        }
+    </script>
+</body>
+</html>

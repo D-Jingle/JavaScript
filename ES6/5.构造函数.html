@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 构造函数
+    // function Person(name,age) {
+    //     this.name = name;
+    //     this.age = age;
+    // }
+    // //在对象下创建方法
+    // Person.prototype.showName = function () {
+    //     console.log(this.name);
+    // }
+    //
+    // var person1 = new Person('xiaoming','20');
+    // person1.showName();
+    //
+
+    var a = 10;
+    console.log(window.a);
+
+    // let 定义的变量不在window下的
+    // let a = 10;
+    setTimeout(function () {
+        console.log(this.a); // undefined
+    },1000);
+</script>
+</body>
+</html>

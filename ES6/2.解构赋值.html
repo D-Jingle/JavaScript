@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    // function foo([a,b,c]) {
+    //     console.log(a,b,c);
+    // }
+    // function foo2({name:a,age:b,school:c='linda'}) { // 以传值为准，没传就可以写一个默认值
+    //     console.log(a,b,c);
+    // }
+    // var obj = {
+    //     name: 'xiaoming',
+    //     age: 20,
+    //     school: heida
+    // }
+    // var arr = ['1','2','3'];
+
+
+
+    // function foo() {
+    //     let arr = ['1','2','3'];
+    //     return arr;
+    // }
+    // var [a,b,c] = foo();
+    // console.log(a,b,c);
+
+    // 交换值
+    let a = 10;
+    let b = 1;
+    // 好奇特的方法 琢磨琢磨琢磨
+    a = a+b;
+    b = a-b;
+    a = a-b;
+    // 解构赋值
+    var [a,b] = [b,a];
+    // 解构2 妈耶
+    a=[b,b=a][0];
+
+</script>
+
+</body>
+</html>

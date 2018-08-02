@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #can{
+            background-color: black;
+            /*canvas不要在这里写高宽*/
+        }
+    </style>
+</head>
+<body>
+<canvas id="can" height="400" width="400">
+
+</canvas>
+
+<script>
+    var oCan = document.getElementById('can');
+    var can = oCan.getContext('2d');
+
+    can.beginPath();
+    can.moveTo(100,150);
+    can.lineTo(350,50);
+    can.strokeStyle='red';
+    can.lineWidth='10';
+    can.stroke();
+
+    can.beginPath();
+    can.moveTo(50,50);
+    can.lineTo(150,150);
+    can.strokeStyle='red';
+    can.lineWidth='10';
+    can.stroke();
+
+
+</script>
+
+</body>
+</html>

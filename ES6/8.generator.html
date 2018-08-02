@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/jquery.js">
+</script>
+<script>
+    // function* helloWorldGenerator() {
+    //     yield 'hello';
+    //     yield 'world';
+    //     return 'ending';
+    // }
+    //
+    // var hw = helloWorldGenerator();
+    //
+    // console.log(hw.next());
+    // console.log(hw.next());
+    // console.log(hw.next());
+
+    // function* foo(x) {
+    //     var y = 2 * (yield (x + 1));
+    //     var z = yield (y / 3);
+    //     return (x + y + z);
+    // }
+    //
+    //
+    // var a = foo(5);
+    // console.log(a.next());
+    // console.log(a.next(12));
+    // console.log(a.next(13));
+
+    // let gene = function (url) {
+    //     return function* foo(x) {
+    //         var y = 2 * (yield (x + 1));
+    //         var z = yield (y / 3);
+    //         console.log(x+y+z);ff
+    //     }
+    // };
+    //
+    // var a = gene();
+    // console.log(a);
+
+    function run(url) {
+        $.get(url,function (res) {
+            console.log(res);
+            a.next();
+        })
+    }
+
+    function* foo() {
+        yield run('musicdata.json');
+        yield run('musicdata.json');
+        return run('musicdata.json');
+    }
+
+    let a = foo();
+    a.next();
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

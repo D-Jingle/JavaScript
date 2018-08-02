@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/jquery.js"></script>
+<script>
+    // var xmlhttp;
+    // if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+    //     xmlhttp=new XMLHttpRequest();
+    // } else {// code for IE6, IE5
+    //     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    // }
+    //
+    //
+    // xmlhttp.open("GET","musicdata.json",true);
+    // xmlhttp.send();
+    //
+    // xmlhttp.onreadystatechange = function() {
+    //     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    //         console.log(JSON.parse(xmlhttp.responseText));
+    //     }
+    // }
+
+
+    // let prom = new Promise(function (resolve,reject) {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //         resolve();
+    //     })
+    // }).then(function () {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //     })
+    // }).catch(function () {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //     })
+    // })
+
+
+    // let prom = new Promise(function (resolve,reject) {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //         resolve();
+    //     })
+    // }).then(function () {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //     })
+    // },function () {
+    //     $.get("musicdata.json",function (res) {
+    //         console.log(res);
+    //     })
+    // });
+
+
+
+
+
+
+    
+    let prom = function (url) {
+        return new Promise(function (resolve,reject) {
+            $.get(url,function (res) {
+                resolve(res);
+            })
+        })
+    };
+
+
+    prom('musicdata.json').then(function (res) {
+        console.log(res,'aaa');
+        return prom('musicdata.json');
+    }).then(function (res) {
+        console.log(res,'bbb');
+        return prom('musicdata.json');
+    }).then(function (res) {
+        console.log(res,'ccc');
+        return prom('musicdata.json');
+    })
+
+
+    //
+    //
+    // let prom1 = function (url) {
+    //     return new Promise(function (resolve,reject) {
+    //         $.get(url,function (res) {
+    //             console.log('111');
+    //             resolve(res);
+    //         })
+    //     })
+    // }
+    // let prom2 = function (url) {
+    //     return new Promise(function (resolve,reject) {
+    //         $.get(url,function (res) {
+    //             console.log('222');
+    //             resolve(res);
+    //         })
+    //     })
+    // }
+    // let prom3 = function (url) {
+    //     return new Promise(function (resolve,reject) {
+    //         $.get(url,function (res) {
+    //             console.log('333');
+    //             resolve(res);
+    //         })
+    //     })
+    // }
+
+
+
+    // Promise.all([prom1,prom2,prom3]).then(function () {
+    //     console.log('done');
+    // },function () {
+    //     console.log(error);
+    // });
+
+    // Promise.race([prom1,prom2,prom3]).then(function () {
+    //     console.log('done');
+    // },function () {
+    //     console.log(error);
+    // });
+
+
+
+</script>
+</body>
+</html>
