@@ -7,48 +7,59 @@
 <body>
 <script src="../js/jquery.js"></script>
 <script>
-    // function Person(name,age) {
-    //     this.name = name;
-    //     this.age = age;
-    // }
-    // Person.prototype.showName = function () {
-    //     console.log(this.name);
-    //     console.log(this);
-    // }
-    //
-    // let person1 = new Person('zhangsan',20);
-    // person1.showName();
-    //
-    // // 基于原型的继承
-    //
-    // function Student(name,age) {
-    //     Person.call(this);
-    // }
-    //
-    // Student('daijing',20);
 
+    // ES5
 
-
-
-    class Person{
-        constructor(name,age){
-            this.name = name;
-            this.age = age;
-        }
-        showName(){
-            console.log(this.name);
-        }
+    function Person(name,age) {
+        this.name = name;
+        this.age = age;
     }
-    let person1 = new Person('DAIJING',20);
+    // 为了防止重复定义
+    Person.prototype.showName = function () {
+        console.log(this.name);
+        console.log(this);
+    };
+
+    let person1 = new Person('zhangsan',20);
     person1.showName();
 
-    class Student extends Person{
-        constructor(name,age){
-            super(name,age);
-        }
+    // 基于原型的继承
+
+    function Student(name,age) {
+        Person.call(this,name,age);
     }
-    let person2 = new Student('daijing2',20);
-    person2.showName();
+
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+    console.log(Student.prototype.constructor);
+
+    let student1 = new Student('daijing',18);
+    student1.showName();
+
+
+
+
+    // ES6
+
+    // class Person{
+    //     constructor(name,age){
+    //         this.name = name;
+    //         this.age = age;
+    //     }
+    //     showName(){
+    //         console.log(this.name);
+    //     }
+    // }
+    // let person1 = new Person('DAIJING',20);
+    // person1.showName();
+    //
+    // class Student extends Person{
+    //     constructor(name,age){
+    //         super(name,age);
+    //     }
+    // }
+    // let person2 = new Student('daijing2',20);
+    // person2.showName();
 
 
 

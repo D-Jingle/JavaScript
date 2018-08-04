@@ -1,0 +1,81 @@
+$color: #ff0;
+$name: width;
+#obx{
+  #{$name}: 200px;
+}
+
+// 嵌套和伪类
+.div{
+  color: $color;
+  .box1{
+    color: $color;
+  }
+  &:hover{
+    font-size: 20px;
+  }
+  &-header{
+    font-size: 20px;
+  }
+}
+
+.div2{
+  background:{
+    color: red;
+    repeat: no-repeat;
+    image: url("../../img/1.jpg");
+  }
+  border:{
+    left: {
+      color: #1b6d85;
+    }
+    right: {
+      width: 2px;
+    }
+  }
+}
+
+.div3{
+  font-size: 16px;
+}
+
+.div4{
+  font-weight: bolder;
+}
+
+// 可以传值
+@mixin mx($w,$h:200px) {
+  width: $w;
+  height: $h;
+}
+
+.div5{
+  @include mx(1000px,2000px)
+}
+// 可以有默认值
+.div6{
+  @include mx(1000px)
+}
+
+// 引入外部文件
+@import 'base';
+
+// 继承
+.div7{
+  @extend .div4;
+}
+
+// 至少有一个有单位
+.div9{
+  height: 200px - 100;
+}
+.div10{
+  height: 100 + 100px;
+}
+//乘除只写一个单位
+.div11{
+  height: 100px * 10;
+}
+//除法不能直接除，要加括号
+.div12{
+  width: (100px) / 2;
+}

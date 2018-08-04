@@ -8,12 +8,54 @@
     <div id="box">box</div>
     <div id="div">div</div>
     <script>
-        var box = document.getElementById('box');
-        var div = document.getElementById('div');
-        box.onclick = function () {
-            box.call(div);
-            console.log(this);
+
+        // var aa = '123';
+        //
+        // function foo(name,age) {
+        //     console.log(this.aa);
+        //     console.log(name);
+        //     console.log(age);
+        // }
+        // foo('lisi',20);
+        //
+        // var obj = {
+        //     aa:'abcd'
+        // };
+        //
+        // //直接执行
+        // foo.call(obj,'zhangsan',18);
+        // foo.apply(obj,['zhangsan','20']);
+        //
+        // //调用才执行
+        // var foo2 = foo.bind(obj);
+        // foo2('lisi',10);
+
+
+        Function.prototype.bind2 = function () {
+            let obj = Array.from(arguments)[0];
+            let args = Array.from(arguments).slice(1);
+            let that = this;
+            return function () {
+                let allArgs = args.concat(bindArgs);
+                let bindArgs = Array.from(arguments);
+                that.call(obj,...allArgs);
+            }
         }
+
+
+        function foo(name,age) {
+            console.log(this.school);
+            console.log(name);
+            console.log(age);
+        }
+
+        let obj = {
+            school: 'linda',
+        };
+
+        let foo2 = foo.bind(obj);
+        foo2('lisi','20');
+
 
     </script>
 
