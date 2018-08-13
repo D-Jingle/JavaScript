@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <daijing :aa="aaa1" :bb="bbb1"></daijing>
+    </div>
+
+
+
+<script src="../vue.js"></script>
+<script>
+    Vue.component('com1',{
+
+    })
+    Vue.component('com2',{
+
+    })
+    new Vue({
+        el:'#app',
+        data:{
+            aaa1:'aaa',
+            bbb1:'bbb',
+        },
+        components:{
+            'daijing': {
+                template:`<h1>这是代靖组件 {{aa}}{{bb}}</h1>`,
+                props:['aa','bb']
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

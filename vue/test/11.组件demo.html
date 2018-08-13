@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .com-bg{
+            height: 800px;
+            width: 100%;
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box{
+            height: 300px;
+            width: 400px;
+            background-color: whitesmoke;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
+        .box-header{
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            line-height: 50px;
+        }
+        .box-header div{
+            padding-left: 20px;
+            display: inline;
+        }
+        .box-header span{
+            float: right;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="登陆" v-on:click="login">
+        <input type="button" value="注册" v-on:click="signup">
+
+    <chuangkou v-show="isLogin" v-on:close="close">
+        <div slot="title">登陆</div>
+        <div slot="boxBody">
+            <div class="box-body">
+                用户名 <input type="text"> <br/>
+                密码 <input type="password"> <br/>
+                <input type="button" value="登陆">
+            </div>
+        </div>
+    </chuangkou>
+
+    <chuangkou v-show="isSignUp" v-on:close="close">
+        <div slot="title">注册</div>
+        <div slot="boxBody">
+            <div class="box-body">
+                用户名 <input type="text"> <br/>
+                密码 <input type="password"> <br/>
+                <input type="button" value="注册">
+            </div>
+        </div>
+    </chuangkou>
+
+    </div>
+
+
+    <template id="com">
+        <div class="com-bg">
+            <div class="box">
+                <div class="box-header">
+                    <slot name="title">登陆</slot>
+                    <span @click="$emit('close')">X</span>
+                </div>
+                <slot name="boxBody"></slot>
+            </div>
+        </div>
+    </template>
+
+
+<script src="../vue.js"></script>
+<script>
+
+
+    Vue.component('chuangkou',{
+        template:'#com'
+    });
+
+
+    new Vue({
+        el:'#app',
+        data:{
+            isSignUp:false,
+            isLogin:false
+        },
+        methods:{
+            login(){
+                this.isLogin = true;
+                console.log('aaa')
+            },
+            signup(){
+                this.isSignUp = true;
+            },
+            close(){
+                this.isLogin = false;
+                this.isSignUp = false;
+            }
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>

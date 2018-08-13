@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="add">add</button>
+        <button @click="destroy"></button>
+        {{num}}
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:0
+            },
+            methods: {
+                add() {
+                    this.num++;
+                },
+                destroy(){
+                    this.$destroy;
+                }
+            },
+                beforeCreate(){
+                    //数据准备，请求数据
+                    console.log('before')
+                },
+                beforeMount(){
+                    //没啥用
+                    console.log('beforeMount');
+                },
+                create(){
+                    // 不能渲染数据
+                    console.log('create');
+                },
+                mounted(){
+                    // 渲染数据
+                    console.log('mounted');
+                },
+                beforeUpdate(){
+                    console.log('beforeUpdate');
+                },
+                update(){
+                    console.log('update');
+                },
+                beforeDestroy(){
+                    console.log('beforeDestroy');
+                }
+
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="tr">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-2">
+                <h1>ToDoList</h1>
+            </div>
+            <div class="col-md-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input class="form-control" id="inputPassword2" placeholder="请输入关键字" v-model="exp">
+                    </div>
+                    <button type="button" class="btn btn-primary mb-2" v-on:click="find">搜索</button>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <div class="form-group">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input class="form-control" placeholder="请输入名称" v-model="name">
+                        <input class="form-control" placeholder="请输入价格" v-model="price">
+                    </div>
+                    <button type="button" class="btn btn-primary mb-2" v-on:click="add">添加</button>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">选择</th>
+                <th scope="col">商品名称</th>
+                <th scope="col">商品价格</th>
+                <th scope="col">删除</th>
+                <!--<th scope="col">lala</th>-->
+            </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in itemList">
+                    <th scope="row">
+                        <input type="checkbox" v-model='selectedItems' name="item" v-bind:value='item'>
+                    </th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                        <button type="checkbox" class="btn btn-danger" v-on:click="delItem(item)">x</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">     </div>
+                            <div class="col-md-4">
+                                <button type="checkbox" class="btn btn-danger" v-on:click="del">删除选中</button>
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">总价:{{addPrice}}{{selectedItemPrice}}元</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="../vue.js"></script>
+    <script>
+        new Vue ({
+            el:'#tr',
+            data:{
+                itemList:[
+                    {
+                        name: '衣服',
+                        price:20
+                    },
+                    {
+                        name: '裤子',
+                        price:30
+                    },
+                    {
+                        name: '鞋',
+                        price:40
+                    },
+                    {
+                        name: '帽子',
+                        price:50
+                    },
+                    {
+                        name: '手淘',
+                        price:60
+                    },
+                ],
+                selectedItems: [],
+                selectedItemPrice: 0,
+                name: '',
+                price: 0,
+                deleItem:{},
+                exp: ''
+            },
+            computed:{
+                addPrice:function () {
+                    let sum = 0;
+                    for(let i=0; i<this.selectedItems.length; i++){
+                        sum += this.selectedItems[i].price;
+                    }
+                    this.selectedItemPrice = sum;
+                }
+            },
+            methods:{
+                del:function(event){
+                    for(let i=0; i<this.itemList.length;i++){
+                        for(let j=0; j<this.selectedItems.length; j++){
+                            if(this.selectedItems[j] == this.itemList[i]){
+                                this.itemList.splice(i,1);
+                            }
+                        }
+                    }
+                    this.selectedItemPrice = 0;
+                    console.log(this.selectedItemPrice);
+                },
+                delItem:function(item) {
+                    for(let i=0; i<this.itemList.length; i++){
+                        if(this.itemList[i] == item){
+                            this.itemList.splice(i,1);
+                        }
+                    }
+                },
+                add:function () {
+                    if(this.name!=''&&this.price!=0){
+                        let tmp = {
+                            name: this.name,
+                            price: this.price*1
+                        };
+                        this.itemList.push(tmp);
+                    }
+                },
+                find:function () {
+                    var tmp = [];
+                    for(let i=0; i < this.itemList.length; i++){
+                        if(this.itemList[i].name.indexOf(this.exp) == -1){
+                            tmp.push(i);
+                        }
+                    }
+                    tmp.reverse();
+                    for(let i=this.itemList.length-1; i>=0; i--){
+                        for(let j=0; j<tmp.length; j++){
+                            if(i == tmp[j]){
+                                this.itemList.splice(i,1);
+                            }
+                        }
+                    }
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

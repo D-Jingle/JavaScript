@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <daijing v-bind:dmsg="msg">
+            <!--//传值-->
+        </daijing>
+        <test v-bind:tmsg="msg2"></test>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // 全局
+        Vue.component('daijing',{ //只能有一个根元素
+            template:`
+                <div>
+                    <h1>hello,world!</h1>
+                    <h1>hello {{dmsg}}</h1>
+                </div>
+
+            `,
+            props:[
+                'dmsg'
+            ]
+        });
+        // 局部
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'daijing',
+                msg2:'test'
+            },
+            components:{
+                'test':{
+                    template:`<h1>{{tmsg}}</h1>`,
+                    prpos:['tmsg']
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

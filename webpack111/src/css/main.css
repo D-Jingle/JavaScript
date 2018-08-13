@@ -7,3 +7,9 @@
     width: 200px;
     background: url("../img/111.jpg");
 }
+::placeholder{
+    color: blue;
+}
+.aa10{
+    font-size: 1000px;
+}

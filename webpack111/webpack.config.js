@@ -1,7 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
+const glob = require('glob');
+const PurifyCSSPlugin = require('purifycss-webpack');
+const webpack = require('webpack');
+const entry = require('./webpack_config/webpack_entry.js');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry : './src/index.js',
@@ -15,7 +19,12 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use:'css-loader',
+                    use:[{
+                        loader:'css-loader',
+                        options: {
+                            importLoaders: 1
+                            }
+                        },'postcss-loader'],
                     publicPath: '../'
                 })
             },{
@@ -30,6 +39,18 @@ module.exports = {
             },{
                 test: /\.(html|htm)$/i,
                 loader: 'html-withimg-loader'
+            },{
+                test: /\.js$/,
+                use:{
+                    loader: 'babel-loader',
+                    options:{presets:'env'}
+                }
+            },{
+                test:/\.scss$/,
+                use:ExtractTextPlugin.extract({
+                    fallback:'style-loader',
+                    use:['css-loader','sass-loader']
+                })
             }
         ]
     },
@@ -42,12 +63,28 @@ module.exports = {
             hash:true,
             template: './src/index.html'
         }),
-        new ExtractTextPlugin('./css/main.css')
+        new ExtractTextPlugin('./css/main.css'),
+        new PurifyCSSPlugin({
+            paths: glob.sync(path.join(__dirname,'./src/*.html')),
+        }),
+        new webpack.BannerPlugin('代靖'),
+        new webpack.ProvidePlugin({
+            $:'jquery'
+        }),
+        new CopyWebpackPlugin([{
+            from: __dirname + 'src/public',
+            to: './public'
+        }])
     ],
     devServer:{
         contentBase: path.resolve(__dirname,'dist'),
         host:'127.0.0.1',
         port:'8081',
         compress: true
+    },
+    watchOptions:{
+        poll:1000,
+        aggregateTimeout:500,
+        ignored: /node_modules./
     }
 }

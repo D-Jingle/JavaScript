@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="change">change</button>
+        {{arr}}
+        {{obj}}
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.directive('test',function (el,binding,vnode) {
+            console.log(el);
+            console.log(binding);
+            console.log(vnode);
+        });
+        new Vue({
+            el:'#app',
+            data:{
+                arr:[1,2,3,4],
+                obj:{
+                    name:'lisi'
+                }
+            },
+            methods:{
+                change(){
+                    // this.arr[2]='a';
+                    this.obj.age = '20';
+                    Vue.set(this.arr,2,'a'); //不能直接监听根元素直接发生变化
+                }
+
+            }
+        })
+</script>
+
+</body>
+</html>

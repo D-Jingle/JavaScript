@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .div1{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+    .div2{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+</style>
+<body>
+    <!--<div id="app">-->
+        <!--<span v-text="vtext"></span>-->
+        <!--<span v-html="vhtml"></span>-->
+    <!--</div>-->
+
+
+    <div id="app">
+        <input type="button" @click="test(2,$event)" value="add">
+        <div>{{num}}</div>
+        <div @click="div1()" class="div1">
+            <div @click.stop="div2()" class="div2"></div>
+        </div>
+    </div>
+    <a href="http://www.baidu.com" @click.prevent="defaul($event)">baidu</a>
+
+    <script src="../vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            num: 0,
+        },
+        methods:{
+            test(key,e){
+                this.num+= key;
+                console.log(e);
+            },
+            div1(e){
+                console.log('div1');
+            },
+            div2(e){
+                console.log('div2');
+            },
+            defaul(e){
+                e.preventDefault();
+            }
+        }
+    })
+</script>
+</body>
+</html>

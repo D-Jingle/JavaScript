@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--节点都不存在-->
+        <div v-if="isIF">
+            isIf
+        </div>
+
+        <!--<div v-else-if="elseIF">-->
+            <!--elseIF-->
+        <!--</div>-->
+        <!--<div v-else>-->
+            <!--else-->
+        <!--</div>-->
+
+        <div v-show="isShow">
+            <!--display:none-->
+            isShow
+        </div>
+
+
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data: {
+                isIF: false,
+                elseIF: false,
+                isShow: false
+            }
+        })
+    </script>
+
+</body>
+</html>
