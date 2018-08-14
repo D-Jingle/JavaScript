@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+    <style>
+        #swipe-box{
+
+        }
+        #swipe-1{
+            height: 500px;
+            width: 100%;
+            background: url("../../img/111.jpg") no-repeat center/cover;
+        }
+        #swipe-2{
+            background: url("../../img/222.jpg") no-repeat center/cover;
+            height: 500px;
+            width: 100%;
+        }
+        #swipe-3{
+            background: url("../../img/333.jpg") no-repeat center/cover;
+            height: 500px;
+            width: 100%;
+        }
+        #swipe-4{
+            background: url("../../img/444.jpg") no-repeat center/cover;
+            height: 500px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="swipe-box">
+            <div id="swipe-1" v-show="a[0]">{{}}</div>
+            <div id="swipe-2" v-show="a[1]"></div>
+            <div id="swipe-3" v-show="a[2]"></div>
+            <div id="swipe-4" v-show="a[3]"></div>
+        </div>
+    </div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            imgList:[
+
+            ]
+        },
+        created(){
+            console.log('进入create');
+            this.timer();
+        },
+        methods:{
+            timer(){
+                var that = this;
+                setInterval(function () {
+                    console.log(that.j);
+                    let k = that.j%4;
+                    console.log(k);
+                    for(let i=0; i<4; i++){
+                        Vue.set(that.a,i,false)
+                    }
+                    Vue.set(that.a,k,true)
+                    console.log(that.a);
+                    that.j++;
+                },1000);
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>
